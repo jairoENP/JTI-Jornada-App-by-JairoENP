@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(href="https://fonts.googleapis.com/css2?family=Roboto&display=swap", rel="stylesheet")
+        link(rel="stylesheet", href="/css/normalize.css")
+        link(rel="stylesheet", href="/css/app.css")
+        title #{nombrePagina}
+    body
+        header.header
+            div.menu-hamburguesa
+                div.menu-hamburguesa__line.menu-hamburguesa--1
+                div.menu-hamburguesa__line.menu-hamburguesa--2
+                div.menu-hamburguesa__line.menu-hamburguesa--3
+                
+            h1.header__title AVANCE - #{avance.vendedor}
+            //-  pre #{vardump(avance)}
+        main.main     
+            aside.aside 
+                ul#vendedores.aside__vendedores
+                    if(avances.length)
+                        each avance in avances
+                            li.aside__vendedor
+                                a.aside__link(href=avance.zona) #{avance.zona} - #{avance.vendedor} 
+                         
+            section.variables 
+                article.variables__variable 
+                    h2.variables__titulo CIGARRILLOS 
+                    div.variables__contenido
+                        div.variables__cantidad
+                            h3 MU
+                            p #{Math.round(avance.muCigarrillos * 100) / 100}
+                        div.variables__objetivo
+                            h3 OBJETIVO
+                            p #{Math.round(avance.objCigarrillos * 100) / 100} 
+                        div.variables__cumplimiento
+                            h3 AVANCE
+                            p(class=`${avance.colorCigarrillos == 3 ? 'variables__color--verde' : avance.colorCigarrillos == 2 ? 'variables__color--amarillo' : 'variables__color--rojo' } variables__color`) #{Math.round(avance.avanceCigarrillos * 10000) / 100} %
+                article.variables__variable 
+                    h2.variables__titulo CAMEL
+                    div.variables__contenido
+                        div.variables__cantidad
+                            h3 MU
+                            p #{Math.round(avance.muCamel * 100) / 100}
+                        div.variables__objetivo
+                            h3 OBJETIVO
+                            p #{Math.round(avance.objCamel * 100) / 100} 
+                        div.variables__cumplimiento
+                            h3 AVANCE
+                            p(class=`${avance.colorCamel == 3 ? 'variables__color--verde' : avance.colorCamel == 2 ? 'variables__color--amarillo' : 'variables__color--rojo' } variables__color`) #{Math.round(avance.avanceCamel * 10000) / 100} %
+                article.variables__variable 
+                    h2.variables__titulo LD
+                    div.variables__contenido
+                        div.variables__cantidad
+                            h3 MU
+                            p #{Math.round(avance.muLD * 100) / 100}
+                        div.variables__objetivo
+                            h3 OBJETIVO
+                            p #{Math.round(avance.objLD * 100) / 100}  
+                        div.variables__cumplimiento
+                            h3 AVANCE
+                            p(class=`${avance.colorLD == 3 ? 'variables__color--verde' : avance.colorLD == 2 ? 'variables__color--amarillo' : 'variables__color--rojo' } variables__color`) #{Math.round(avance.avanceLD * 10000) / 100} %
+                article.variables__variable 
+                    h2.variables__titulo MONTECARLO
+                    div.variables__contenido
+                        div.variables__cantidad
+                            h3 MU
+                            p #{Math.round(avance.muMontecarlo * 100) / 100}
+                        div.variables__objetivo
+                            h3 OBJETIVO
+                            p #{Math.round(avance.objMontecarlo * 100) / 100} 
+                        div.variables__cumplimiento
+                            h3 AVANCE
+                            p(class=`${avance.colorMontecarlo == 3 ? 'variables__color--verde' : avance.colorMontecarlo == 2 ? 'variables__color--amarillo' : 'variables__color--rojo'} variables__color`) #{Math.round(avance.avanceMontecarlo * 10000) / 100} %
+                article.variables__variable 
+                    h2.variables__titulo DISTRIBUCION
+                    div.variables__contenido
+                        div.variables__cantidad
+                            h3 CLIENTES
+                            p #{avance.cantidadDistribucion}
+                        div.variables__objetivo
+                            h3 OBJETIVO
+                            p #{avance.objDistribucion} 
+                        div.variables__cumplimiento
+                            h3 AVANCE
+                            p(class=`${avance.colorDistribucion == 3 ? 'variables__color--verde' : avance.colorDistribucion == 2 ? 'variables__color--amarillo' : 'variables__color--rojo' } variables__color`) #{Math.round(avance.avanceDistribucion * 10000) / 100} %
+                article.variables__variable 
+                    h2.variables__titulo DISTRIBUCION LD
+                    div.variables__contenido
+                        div.variables__cantidad
+                            h3 CLIENTES 
+                            p #{avance.cantidadDistribucionLD}
+                        div.variables__objetivo
+                            h3 OBJETIVO
+                            p #{avance.objDistribucionLD} 
+                        div.variables__cumplimiento
+                            h3 AVANCE
+                            p(class=`${avance.colorDistribucionLD == 3 ? 'variables__color--verde' : avance.colorDistribucionLD == 2 ? 'variables__color--amarillo' : 'variables__color--rojo' } variables__color`) #{Math.round(avance.avanceDistribucionLD * 10000) / 100} %         
+                
+
+        script(src="js/script.js")
+          
+            
+                    
+                    
+              
