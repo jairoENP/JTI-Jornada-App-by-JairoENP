@@ -1,11 +1,13 @@
 const express = require('express');
 const app = express();
 const routes = require('./routes/index')
-const port = process.env.PORT || 3000;
 const path = require('path');
 const bodyParser = require('body-parser');
-const host = process.env.HOST || '0.0.0.0'
-//const expressValidator = require('express-validator');
+
+require('dotenv').config({path:'variables.env'});
+
+const host = process.env.HOST || '0.0.0.0';
+const port = process.env.PORT || 3000;
 
 
 const helpers = require('./helpers')
@@ -16,6 +18,7 @@ require('./models/Jornada')
 
 db.sync()
     .then(() => console.log('conectado al servidor'))
+    .catch(error => console.log(error));
 
 
 app.use(express.static(__dirname + '/public'));
