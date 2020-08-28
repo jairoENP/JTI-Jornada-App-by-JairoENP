@@ -4,6 +4,7 @@ const routes = require('./routes/index')
 const port = process.env.PORT || 3000;
 const path = require('path');
 const bodyParser = require('body-parser');
+const host = process.env.HOST || '0.0.0.0'
 //const expressValidator = require('express-validator');
 
 
@@ -31,6 +32,6 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 app.use('/',routes); 
 
-app.listen(port, () => {
+app.listen(port, host , () => {
     console.log(`Escuchando puerto ${port}`);
 }) 
