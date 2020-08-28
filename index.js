@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const routes = require('./routes/index')
-const port = process.env.port || 3000;
+const port = process.env.PORT || 3000;
 const path = require('path');
 const bodyParser = require('body-parser');
 //const expressValidator = require('express-validator');
